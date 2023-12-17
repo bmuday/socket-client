@@ -1,8 +1,9 @@
 import { io } from "socket.io-client";
 import { validateMessage, type Message } from "../models/message";
 import { messagesStore } from "../state/messages";
+import { PUBLIC_SERVER_DOMAIN } from "$env/static/public"
 
-const socket = io("ws://localhost:3000");
+const socket = io(PUBLIC_SERVER_DOMAIN);
 
 socket.on("connect", () => {
   console.log("Successfully connected to socket");
